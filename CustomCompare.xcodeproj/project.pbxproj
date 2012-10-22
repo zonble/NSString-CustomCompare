@@ -1,0 +1,246 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D428FBC21635C2F900CB63EA /* NSString+CustomCompare.mm in Sources */ = {isa = PBXBuildFile; fileRef = D428FBC11635C2F900CB63EA /* NSString+CustomCompare.mm */; };
+		D428FBCA1635CA3F00CB63EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D428FBC91635CA3B00CB63EA /* main.m */; };
+		D447AA0716357B1600E4AE43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D447AA0616357B1600E4AE43 /* Foundation.framework */; };
+		D447AA1516357B4F00E4AE43 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D447AA1416357B4F00E4AE43 /* libicucore.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D447AA0016357B1600E4AE43 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D428FBC01635C2F900CB63EA /* NSString+CustomCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CustomCompare.h"; sourceTree = "<group>"; };
+		D428FBC11635C2F900CB63EA /* NSString+CustomCompare.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSString+CustomCompare.mm"; sourceTree = "<group>"; };
+		D428FBC91635CA3B00CB63EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D447AA0216357B1600E4AE43 /* CustomCompare */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CustomCompare; sourceTree = BUILT_PRODUCTS_DIR; };
+		D447AA0616357B1600E4AE43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D447AA1416357B4F00E4AE43 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D447A9FF16357B1600E4AE43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D447AA1516357B4F00E4AE43 /* libicucore.dylib in Frameworks */,
+				D447AA0716357B1600E4AE43 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D428FBBF1635C2DA00CB63EA /* NSString+CustomCompare */ = {
+			isa = PBXGroup;
+			children = (
+				D428FBC01635C2F900CB63EA /* NSString+CustomCompare.h */,
+				D428FBC11635C2F900CB63EA /* NSString+CustomCompare.mm */,
+			);
+			path = "NSString+CustomCompare";
+			sourceTree = "<group>";
+		};
+		D428FBC81635CA3B00CB63EA /* CustomCompare */ = {
+			isa = PBXGroup;
+			children = (
+				D428FBC91635CA3B00CB63EA /* main.m */,
+			);
+			path = CustomCompare;
+			sourceTree = "<group>";
+		};
+		D447A9F716357B1600E4AE43 = {
+			isa = PBXGroup;
+			children = (
+				D428FBC81635CA3B00CB63EA /* CustomCompare */,
+				D428FBBF1635C2DA00CB63EA /* NSString+CustomCompare */,
+				D447AA0516357B1600E4AE43 /* Frameworks */,
+				D447AA0316357B1600E4AE43 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D447AA0316357B1600E4AE43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D447AA0216357B1600E4AE43 /* CustomCompare */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D447AA0516357B1600E4AE43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D447AA1416357B4F00E4AE43 /* libicucore.dylib */,
+				D447AA0616357B1600E4AE43 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D447AA0116357B1600E4AE43 /* CustomCompare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D447AA1116357B1600E4AE43 /* Build configuration list for PBXNativeTarget "CustomCompare" */;
+			buildPhases = (
+				D447A9FE16357B1600E4AE43 /* Sources */,
+				D447A9FF16357B1600E4AE43 /* Frameworks */,
+				D447AA0016357B1600E4AE43 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomCompare;
+			productName = ICUCompare;
+			productReference = D447AA0216357B1600E4AE43 /* CustomCompare */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D447A9F916357B1600E4AE43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "KKBOX Taiwan .Ltd.";
+			};
+			buildConfigurationList = D447A9FC16357B1600E4AE43 /* Build configuration list for PBXProject "CustomCompare" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D447A9F716357B1600E4AE43;
+			productRefGroup = D447AA0316357B1600E4AE43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D447AA0116357B1600E4AE43 /* CustomCompare */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D447A9FE16357B1600E4AE43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D428FBC21635C2F900CB63EA /* NSString+CustomCompare.mm in Sources */,
+				D428FBCA1635CA3F00CB63EA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D447AA0F16357B1600E4AE43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D447AA1016357B1600E4AE43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D447AA1216357B1600E4AE43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				HEADER_SEARCH_PATHS = "$SRCROOT/include/**";
+				OTHER_CFLAGS = "-DU_DISABLE_RENAMING=1";
+				OTHER_LDFLAGS = "-licucore";
+				PRODUCT_NAME = CustomCompare;
+			};
+			name = Debug;
+		};
+		D447AA1316357B1600E4AE43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				HEADER_SEARCH_PATHS = "$SRCROOT/include/**";
+				OTHER_CFLAGS = "-DU_DISABLE_RENAMING=1";
+				OTHER_LDFLAGS = "-licucore";
+				PRODUCT_NAME = CustomCompare;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D447A9FC16357B1600E4AE43 /* Build configuration list for PBXProject "CustomCompare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D447AA0F16357B1600E4AE43 /* Debug */,
+				D447AA1016357B1600E4AE43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D447AA1116357B1600E4AE43 /* Build configuration list for PBXNativeTarget "CustomCompare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D447AA1216357B1600E4AE43 /* Debug */,
+				D447AA1316357B1600E4AE43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D447A9F916357B1600E4AE43 /* Project object */;
+}
