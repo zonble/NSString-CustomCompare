@@ -1,11 +1,17 @@
 #import "NSString+CustomCompare.h"
-#include <unicode/coll.h>
+#ifdef CPP
+	#include <unicode/coll.h>
+#else
+	#include <unicode/ucol.h>
+#endif
+
+#ifdef USE_CPP_API
 
 static Collator::EComparisonResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char *localeName) 
 {
 	UErrorCode status = U_ZERO_ERROR; 
 	const Locale& strokeLocale = Locale(localeName);
-	Collator *coll = Collator::createInstance(strokeLocale, status); 
+	Collator* coll = Collator::createInstance(strokeLocale, status); 
 	if (U_SUCCESS(status)) {
 		UnicodeString aStr = UnicodeString::fromUTF8([a UTF8String]);
 		UnicodeString bStr = UnicodeString::fromUTF8([b UTF8String]);
@@ -15,6 +21,24 @@ static Collator::EComparisonResult compareStringByPassingLocaleName(NSString *a,
 	}
 	return Collator::EQUAL;
 }
+
+#else 
+
+static UCollationResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char *localeName) 
+{
+	UErrorCode status = U_ZERO_ERROR;
+	UCollator * collator = ucol_open(localeName, &status);
+	NSUInteger strLenA = [a length];
+	NSUInteger strLenB = [b length];
+	UChar aStr[strLenA];
+	UChar bStr[strLenB];
+	u_strFromUTF8(aStr, strLenA, NULL, [a UTF8String], -1, &status);
+	u_strFromUTF8(aStr, strLenB, NULL, [b UTF8String], -1, &status);
+	ucol_close(collator);
+	return ucol_strcoll(collator, aStr, strLenA, bStr, strLenB);	
+}
+
+#endif
 
 @implementation NSString (CustomCompare)
 
