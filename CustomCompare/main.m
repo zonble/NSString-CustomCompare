@@ -23,7 +23,7 @@ int main(int argc, const char * argv[])
 		NSLog(@"Pinyin:%@", [[a sortedArrayUsingSelector:@selector(compareChineseByPinyinOrder:)] componentsJoinedByString:@","]);
 		NSLog(@"BIG5:%@", [[a sortedArrayUsingSelector:@selector(compareChineseByBIG5Order:)] componentsJoinedByString:@","]);
 		NSLog(@"GB2312:%@", [[a sortedArrayUsingSelector:@selector(compareChineseByGB2312Order:)] componentsJoinedByString:@","]);
-
+		NSLog(@"Radical:%@", [[a sortedArrayUsingSelector:@selector(compareChineseByRadicalOrder:)] componentsJoinedByString:@","]);
 	}
     return 0;
 }
