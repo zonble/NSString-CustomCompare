@@ -1,5 +1,6 @@
 #import "NSString+CustomCompare.h"
-#ifdef CPP
+#define USE_CPP_API 1
+#ifdef USE_CPP_API
 	#include <unicode/coll.h>
 #else
 	#include <unicode/ucol.h>
@@ -7,15 +8,15 @@
 
 #ifdef USE_CPP_API
 
-static Collator::EComparisonResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char * localeName) 
+static Collator::EComparisonResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char *localeName) 
 {
 	UErrorCode status = U_ZERO_ERROR; 
 	const Locale& strokeLocale = Locale(localeName);
 	Collator* coll = Collator::createInstance(strokeLocale, status); 
 	if (U_SUCCESS(status)) {
-		UnicodeString strA = UnicodeString::fromUTF8([a UTF8String]);
-		UnicodeString strB = UnicodeString::fromUTF8([b UTF8String]);
-		Collator::EComparisonResult result = coll->compare(strA, strB);
+		UnicodeString aStr = UnicodeString::fromUTF8([a UTF8String]);
+		UnicodeString bStr = UnicodeString::fromUTF8([b UTF8String]);
+		Collator::EComparisonResult result = coll->compare(aStr, bStr);
 		delete coll;
 		return result;
 	}
@@ -24,17 +25,17 @@ static Collator::EComparisonResult compareStringByPassingLocaleName(NSString *a,
 
 #else 
 
-static UCollationResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char * localeName) 
+static UCollationResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char *localeName) 
 {
 	UErrorCode status = U_ZERO_ERROR;
 	UCollator * collator = ucol_open(localeName, &status);
 	NSUInteger strLenA = [a length];
 	NSUInteger strLenB = [b length];
-	UChar strA[strLenA];
-	UChar strB[strLenB];
-	u_strFromUTF8(strA, strLenA, NULL, [a UTF8String], -1, &status);
-	u_strFromUTF8(strB, strLenB, NULL, [b UTF8String], -1, &status);
-	UCollationResult result = ucol_strcoll(collator, strA, strLenA, strB, strLenB);	
+	UChar aStr[strLenA];
+	UChar bStr[strLenB];
+	u_strFromUTF8(aStr, strLenA, NULL, [a UTF8String], -1, &status);
+	u_strFromUTF8(bStr, strLenB, NULL, [b UTF8String], -1, &status);
+	UCollationResult result = ucol_strcoll(collator, aStr, strLenA, bStr, strLenB);	
 	ucol_close(collator);
 	return result;
 }

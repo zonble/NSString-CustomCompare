@@ -4,7 +4,23 @@
 int main(int argc, const char * argv[])
 {
 	@autoreleasepool {
-		NSArray *a = [NSArray arrayWithObjects:@"一", @"二", @"三", @"四", @"五", @"六", @"七", @"八", @"九", @"十", @"百", @"千", @"萬", nil];
+		NSArray *a = [NSArray arrayWithObjects:@"一",
+					  @"一二",
+					  @"一二三",
+					  @"一二二",
+					  @"一二一",
+					  @"二", 
+					  @"三", 
+					  @"四", 
+					  @"五", 
+					  @"六", 
+					  @"七", 
+					  @"八", 
+					  @"九", 
+					  @"十", 
+					  @"百", 
+					  @"千",
+					  @"萬", nil];
 
 //		NSLog(@"Stroke:%@", [[a sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
 //			return [obj1 compareChineseByStrokeOrder:obj2];
