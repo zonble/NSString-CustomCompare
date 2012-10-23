@@ -1,12 +1,15 @@
 #import "NSString+CustomCompare.h"
-#define USE_CPP_API 1
+//#define USE_CPP_API 1
+//#define USE_C_API 1
 #ifdef USE_CPP_API
 	#include <unicode/coll.h>
-#else
+#elseif USE_C_API
 	#include <unicode/ucol.h>
 #endif
 
 #ifdef USE_CPP_API
+
+// Use ICU's C++ APIs to compare strings.
 
 static Collator::EComparisonResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char *localeName) 
 {
@@ -23,7 +26,9 @@ static Collator::EComparisonResult compareStringByPassingLocaleName(NSString *a,
 	return Collator::EQUAL;
 }
 
-#else 
+#elseif USE_C_API
+
+// Use ICU's C APIs to compare strings.
 
 static UCollationResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char *localeName) 
 {
@@ -37,6 +42,18 @@ static UCollationResult compareStringByPassingLocaleName(NSString *a, NSString *
 	u_strFromUTF8(bStr, strLenB, NULL, [b UTF8String], -1, &status);
 	UCollationResult result = ucol_strcoll(collator, aStr, strLenA, bStr, strLenB);	
 	ucol_close(collator);
+	return result;
+}
+
+#else
+
+// Use Cocoa's Objective C APIs to compare strings.
+
+static NSComparisonResult compareStringByPassingLocaleName(NSString *a, NSString *b, const char *localeName)
+{
+	NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:[NSString stringWithUTF8String:localeName]];
+	NSComparisonResult result = [a compare:b options:0 range:NSMakeRange(0, [a length]) locale:locale];
+	[locale release];
 	return result;
 }
 
